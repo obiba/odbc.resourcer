@@ -15,7 +15,6 @@ Description: This package uses databases that are accessible through the ODBC AP
 License: LGPL (>= 2.1)
 LazyData: true
 Depends:
-    R (>= 3.5.0),
     R6,
     httr,
     resourcer,

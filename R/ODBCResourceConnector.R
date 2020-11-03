@@ -4,10 +4,7 @@
 #'
 #' @docType class
 #' @format A R6 object of class ODBCResourceConnector
-#' @import R6
-#' @import httr
-#' @import resourcer
-#' @import RODBCDBI
+#' @import R6 httr resourcer RODBCDBI
 #' @export
 ODBCResourceConnector <- R6::R6Class(
   "ODBCResourceConnector",
