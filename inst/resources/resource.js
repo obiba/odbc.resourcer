@@ -75,7 +75,7 @@ var odbc_resourcer = {
     //
     var toResourceFactories = {
       "dremio": function(name, params, credentials) {
-          return toODBCResource("dremio", params.host, params.port, params.dataset, credentials);
+          return toODBCResource("dremio", params.host, params.port, encodeURI(params.dataset), credentials);
       }
     };
 
