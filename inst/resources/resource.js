@@ -7,7 +7,7 @@ var odbc_resourcer = {
     "types": [
       {
         "name": "dremio",
-        "title": "Dremio Connector",
+        "title": "Dremio",
         "description": "The [Dremio](https://www.dremio.com/) resource is accessible through a ODBC driver (experimental).",
         "tags": ["database"],
         "parameters": {
