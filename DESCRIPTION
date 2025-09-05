@@ -11,18 +11,18 @@ Authors@R:
       person("OBiBa group",
              role="cph",
              email="info@obiba.org"))
-Description: This package uses databases that are accessible through the ODBC API, more specifically the Dremio database.
+Description: This package uses databases that are accessible through the ODBC API, more specifically the MS SQL Server database.
 License: LGPL (>= 2.1)
 LazyData: true
 Depends:
     R6,
     httr,
     resourcer,
-    RODBCDBI
+    odbc,
+    DBI
 Suggests:
     testthat,
     knitr
 BugReports: https://github.com/obiba/odbc.resourcer
-RoxygenNote: 7.1.1
-VignetteBuilder: knitr
+RoxygenNote: 7.3.2
 Encoding: UTF-8

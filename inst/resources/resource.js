@@ -6,9 +6,9 @@ var odbc_resourcer = {
     "categories": [],
     "types": [
       {
-        "name": "dremio",
-        "title": "Dremio",
-        "description": "The [Dremio](https://www.dremio.com/) resource is accessible through a ODBC driver (experimental).",
+        "name": "mssql",
+        "title": "MS SQL Server",
+        "description": "The [MS SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2022) resource is accessible through a ODBC driver (experimental).",
         "tags": ["database"],
         "parameters": {
           "$schema": "http://json-schema.org/schema#",
@@ -27,20 +27,26 @@ var odbc_resourcer = {
               "description": "Database port number."
             },
             {
-              "key": "dataset",
+              "key": "database",
               "type": "string",
-              "title": "Dataset",
-              "description": "The dataset path."
+              "title": "Database",
+              "description": "The database name."
+            },
+            {
+              "key": "table",
+              "type": "string",
+              "title": "Table",
+              "description": "The table name."
             }
           ],
           "required": [
-            "driver", "host", "port", "dataset"
+            "driver", "host", "port", "database", "table"
           ]
         },
         "credentials": {
           "$schema": "http://json-schema.org/schema#",
           "type": "array",
-          "description": "Credentials are optional.",
+          "description": "Credentials are optional. If ommitted, trusted connection is expected.",
           "items": [
             {
               "key": "username",
@@ -74,8 +80,8 @@ var odbc_resourcer = {
     // Resource factory functions by resource form type
     //
     var toResourceFactories = {
-      "dremio": function(name, params, credentials) {
-          return toODBCResource("dremio", params.host, params.port, encodeURI(params.dataset), credentials);
+      "mssql": function(name, params, credentials) {
+          return toODBCResource("mssql", params.host, params.port, paste0(encodeURI(params.database), "/", encodeURI(params.table)), credentials);
       }
     };
 

@@ -3,13 +3,15 @@
 [![Build Status](https://travis-ci.com/obiba/odbc.resourcer.svg?branch=master)](https://travis-ci.com/obiba/odbc.resourcer)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/odbc.resourcer)](https://cran.r-project.org/package=odbc.resourcer)
 
-The `odbc.resourcer` package is for accessing databases implementing the ODBC API. An example of such database is [Dremio](https://www.dremio.com/), the "next-generation data lake engine". 
+The `odbc.resourcer` package is for accessing databases implementing the ODBC API.
 
-For instance this is a valid resource object that can be accessed by the `DremioResourceConnector`:
+For a [MS SQL](https://www.microsoft.com/en-us/sql-server/sql-server-2022) server database, the resource object would be:
 
-```
+```r
 library(odbc.resourcer)
-res <- resourcer::newResource(url = "odbc+dremio://localhost:31010/\"@administrator\".CNSIM3", identity = "administrator", secret = "password1234")
+res <- resourcer::newResource(url = "odbc+mssql://localhost:1433/database/CNSIM3", identity = "administrator", secret = "password1234")
 client <- resourcer::newResourceClient(res)
 client$asDataFrame()
 ```
+
+The package is built on top of the [odbc](https://cran.r-project.org/web/packages/odbc/index.html) package and the [DBI](https://cran.r-project.org/web/packages/DBI/index.html) package.

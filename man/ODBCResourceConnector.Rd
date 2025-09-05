@@ -21,23 +21,26 @@ Makes a ODBC DBI connection from a resource description.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ODBCResourceConnector$new()}}
-\item \href{#method-isFor}{\code{ODBCResourceConnector$isFor()}}
-\item \href{#method-createDBIConnection}{\code{ODBCResourceConnector$createDBIConnection()}}
-\item \href{#method-getConnectionString}{\code{ODBCResourceConnector$getConnectionString()}}
-\item \href{#method-clone}{\code{ODBCResourceConnector$clone()}}
+\item \href{#method-ODBCResourceConnector-new}{\code{ODBCResourceConnector$new()}}
+\item \href{#method-ODBCResourceConnector-isFor}{\code{ODBCResourceConnector$isFor()}}
+\item \href{#method-ODBCResourceConnector-createDBIConnection}{\code{ODBCResourceConnector$createDBIConnection()}}
+\item \href{#method-ODBCResourceConnector-getConnectionParameters}{\code{ODBCResourceConnector$getConnectionParameters()}}
+\item \href{#method-ODBCResourceConnector-clone}{\code{ODBCResourceConnector$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="resourcer" data-topic="DBIResourceConnector" data-id="closeDBIConnection">}\href{../../resourcer/html/DBIResourceConnector.html#method-closeDBIConnection}{\code{resourcer::DBIResourceConnector$closeDBIConnection()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="resourcer" data-topic="DBIResourceConnector" data-id="closeDBIConnection"><a href='../../resourcer/html/DBIResourceConnector.html#method-DBIResourceConnector-closeDBIConnection'><code>resourcer::DBIResourceConnector$closeDBIConnection()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="resourcer" data-topic="DBIResourceConnector" data-id="getTableName"><a href='../../resourcer/html/DBIResourceConnector.html#method-DBIResourceConnector-getTableName'><code>resourcer::DBIResourceConnector$getTableName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="resourcer" data-topic="DBIResourceConnector" data-id="readDBTable"><a href='../../resourcer/html/DBIResourceConnector.html#method-DBIResourceConnector-readDBTable'><code>resourcer::DBIResourceConnector$readDBTable()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="resourcer" data-topic="DBIResourceConnector" data-id="readDBTibble"><a href='../../resourcer/html/DBIResourceConnector.html#method-DBIResourceConnector-readDBTibble'><code>resourcer::DBIResourceConnector$readDBTibble()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ODBCResourceConnector-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ODBCResourceConnector-new}{}}}
 \subsection{Method \code{new()}}{
 Creates a new ODBCResourceConnector instance.
 \subsection{Usage}{
@@ -49,8 +52,8 @@ A ODBCResourceConnector object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-isFor"></a>}}
-\if{latex}{\out{\hypertarget{method-isFor}{}}}
+\if{html}{\out{<a id="method-ODBCResourceConnector-isFor"></a>}}
+\if{latex}{\out{\hypertarget{method-ODBCResourceConnector-isFor}{}}}
 \subsection{Method \code{isFor()}}{
 Check that the provided resource has a URL that locates a ODBC object: the URL scheme must start with "odbc".
 \subsection{Usage}{
@@ -69,8 +72,8 @@ A logical.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createDBIConnection"></a>}}
-\if{latex}{\out{\hypertarget{method-createDBIConnection}{}}}
+\if{html}{\out{<a id="method-ODBCResourceConnector-createDBIConnection"></a>}}
+\if{latex}{\out{\hypertarget{method-ODBCResourceConnector-createDBIConnection}{}}}
 \subsection{Method \code{createDBIConnection()}}{
 Creates a DBI connection object from a resource.
 \subsection{Usage}{
@@ -89,12 +92,12 @@ A DBI connection object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getConnectionString"></a>}}
-\if{latex}{\out{\hypertarget{method-getConnectionString}{}}}
-\subsection{Method \code{getConnectionString()}}{
+\if{html}{\out{<a id="method-ODBCResourceConnector-getConnectionParameters"></a>}}
+\if{latex}{\out{\hypertarget{method-ODBCResourceConnector-getConnectionParameters}{}}}
+\subsection{Method \code{getConnectionParameters()}}{
 Get the specific ODBC driver connection string.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ODBCResourceConnector$getConnectionString(resource)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ODBCResourceConnector$getConnectionParameters(resource)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -105,12 +108,12 @@ Get the specific ODBC driver connection string.
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-The ODBC driver connection string.
+The ODBC driver connection parameters list.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ODBCResourceConnector-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ODBCResourceConnector-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

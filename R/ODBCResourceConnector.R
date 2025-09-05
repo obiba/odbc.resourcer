@@ -4,7 +4,7 @@
 #'
 #' @docType class
 #' @format A R6 object of class ODBCResourceConnector
-#' @import R6 httr resourcer RODBCDBI
+#' @import R6 httr resourcer DBI odbc
 #' @export
 ODBCResourceConnector <- R6::R6Class(
   "ODBCResourceConnector",
@@ -29,24 +29,25 @@ ODBCResourceConnector <- R6::R6Class(
       if (self$isFor(resource)) {
         super$loadDBI()
         private$loadRODBC()
-        conn <- DBI::dbConnect(RODBCDBI::ODBC(), dsn = "", connection = self$getConnectionString(resource), case = "nochange")
+        params <- self$getConnectionParameters(resource)
+        conn <- do.call(DBI::dbConnect, c(list(odbc::odbc()), params))
       } else {
         stop("Resource is not located in a ODBC database")
       }
     },
-    
+
     #' @description Get the specific ODBC driver connection string.
     #' @param resource A valid resource object.
-    #' @return The ODBC driver connection string.
-    getConnectionString = function(resource) {
-      stop("ODBC driver connection string not implemented")
+    #' @return The ODBC driver connection parameters list.
+    getConnectionParameters = function(resource) {
+      stop("ODBC driver connection parameters not implemented")
     }
 
   ),
   private = list(
     loadRODBC = function() {
-      if (!require("RODBCDBI")) {
-        install.packages("RODBCDBI", repos = "https://cloud.r-project.org", dependencies = TRUE)
+      if (!require("odbc")) {
+        install.packages("odbc", repos = "https://cloud.r-project.org", dependencies = TRUE)
       }
     }
   )
