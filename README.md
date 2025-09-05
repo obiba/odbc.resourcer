@@ -1,6 +1,6 @@
 # ODBC Resource R
 
-[![Build Status](https://travis-ci.com/obiba/odbc.resourcer.svg?branch=master)](https://travis-ci.com/obiba/odbc.resourcer)
+[![R-CMD-check](https://github.com/obiba/odbc.resourcer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/obiba/odbc.resourcer/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/odbc.resourcer)](https://cran.r-project.org/package=odbc.resourcer)
 
 The `odbc.resourcer` package is for accessing databases implementing the ODBC API.
