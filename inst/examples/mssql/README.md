@@ -1,29 +1,37 @@
-# MS SQL Server Usqage Example
+# MS SQL Server Usage Example
 
 This directory contains an example of how to use the `odbc.resourcer` package to connect to a Microsoft SQL Server database and retrieve table values.
 
 ## Prerequisites
 
-- An instance of Microsoft SQL Server running and accessible.
+- Run an instance of Microsoft SQL Server.
 
 ```
 # get the docker image
 make pull
-# stqrt the container
+# start the container
 make up
 ```
 
-- Some initial data in the database. You can use the provided `init-scripts/init.sql` script to create a sample database and table.
+- Add some initial data in the database. You can use the provided `init-scripts/init.sql` script to create a sample database and table.
 
 ```
 # initialize the database with sample data
 make init
+# list databases
+make databases
 ```
 
-- The `odbc.resourcer` R package installed.
+- Install the `odbc.resourcer` R package.
 
 ```
 remote::install_github("obiba/odbc.resourcer")
+```
+
+- You may need to install some system dependencies:
+
+```
+sudo make ubuntu-deps
 ```
 
 ## Usage
