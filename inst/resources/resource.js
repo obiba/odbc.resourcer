@@ -3,7 +3,13 @@ var odbc_resourcer = {
     "title": "ODBC Resources",
     "description": "Access to databases implementing the ODBC interface.",
     "web": "https://github.com/obiba/odbc.resourcer",
-    "categories": [],
+    "categories": [
+      {
+        "name": "database",
+        "title": "Database",
+        "description": "Data are stored in a database."
+      }
+    ],
     "types": [
       {
         "name": "mssql",
@@ -24,7 +30,8 @@ var odbc_resourcer = {
               "key": "port",
               "type": "integer",
               "title": "Port",
-              "description": "Database port number."
+              "description": "Database port number.",
+              "default": 1433
             },
             {
               "key": "database",
@@ -40,7 +47,7 @@ var odbc_resourcer = {
             }
           ],
           "required": [
-            "driver", "host", "port", "database", "table"
+            "host", "port", "database", "table"
           ]
         },
         "credentials": {
@@ -81,7 +88,7 @@ var odbc_resourcer = {
     //
     var toResourceFactories = {
       "mssql": function(name, params, credentials) {
-          return toODBCResource("mssql", params.host, params.port, paste0(encodeURI(params.database), "/", encodeURI(params.table)), credentials);
+          return toODBCResource("mssql", params.host, params.port, encodeURI(params.database) + "/" + encodeURI(params.table), credentials);
       }
     };
 
