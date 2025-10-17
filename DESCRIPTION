@@ -1,6 +1,6 @@
 Package: odbc.resourcer
 Type: Package
-Title: ODBC Resource Resolver
+Title: Open Database Connectivity Resource Resolver
 Version: 1.0.0
 Authors@R:
     c(person(given = "Yannick",
@@ -11,7 +11,7 @@ Authors@R:
       person("OBiBa group",
              role="cph",
              email="info@obiba.org"))
-Description: This package uses databases that are accessible through the ODBC API, more specifically the MS SQL Server database.
+Description: A database resource that is accessible through the Open Database Connectivity ('ODBC') API, more specifically the MS SQL Server database.
 License: LGPL (>= 2.1)
 LazyData: true
 Depends:
@@ -23,6 +23,6 @@ Depends:
 Suggests:
     testthat,
     knitr
-BugReports: https://github.com/obiba/odbc.resourcer
+BugReports: https://github.com/obiba/odbc.resourcer/issues
 RoxygenNote: 7.3.2
 Encoding: UTF-8

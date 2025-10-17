@@ -14,4 +14,4 @@ client <- resourcer::newResourceClient(res)
 client$asDataFrame()
 ```
 
-The package is built on top of the [odbc](https://cran.r-project.org/web/packages/odbc/index.html) package and the [DBI](https://cran.r-project.org/web/packages/DBI/index.html) package.
+The package is built on top of the [odbc](https://CRAN.R-project.org/package=odbc) package and the [DBI](https://CRAN.R-project.org/package=DBI) package.
