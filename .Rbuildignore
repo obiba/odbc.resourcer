@@ -16,3 +16,4 @@
 ^derby.log$
 ^logs$
 ^.github$
+^CRAN-SUBMISSION$
