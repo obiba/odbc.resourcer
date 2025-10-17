@@ -9,6 +9,7 @@ figure
 .RData
 inst/doc
 vignettes/*.R
+vignettes/*.html
 .httr-oauth
 derby.log
 logs

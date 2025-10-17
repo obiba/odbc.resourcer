@@ -1,0 +1,96 @@
+---
+title: "Introduction to ODBC Resources"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to ODBC Resources}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `odbc.resourcer` package is for accessing databases implementing the Open Database Connectivity (ODBC) API, more specifically for a [MS SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-2022) server database.
+
+## Testing
+
+For testing purpose, you can use the example provided at `<installation path>/odbc.resourcer/examples/mssql/`.
+
+This directory contains an example of how to use the `odbc.resourcer` package to connect to a Microsoft SQL Server database and retrieve table values.
+
+### Prerequisites
+
+- Run an instance of Microsoft SQL Server.
+
+```
+# get the docker image
+make pull
+# start the container
+make up
+```
+
+- Add some initial data in the database. You can use the provided `init-scripts/init.sql` script to create a sample database and table.
+
+```
+# initialize the database with sample data
+make init
+# list databases
+make databases
+```
+
+- You may need to install some system dependencies:
+
+```
+sudo make ubuntu-deps
+```
+
+### Usage
+
+
+Create a resource and a resource client:
+
+```{r eval=FALSE}
+library(odbc.resourcer)
+res <- resourcer::newResource(url = "odbc+mssql://localhost:1433/EpidemiologyDB/PatientData", identity = "sa", secret = "YourStrong@Password123")
+# Create a resource client
+client <- resourcer::newResourceClient(res)
+```
+
+Coerce resource to a data frame:
+
+```{r eval=FALSE}
+df <- client$asDataFrame()
+```
+
+Disconnect the client:
+
+```{r eval=FALSE}
+client$close()
+```
+
+## Troubleshooting
+
+For trouble shooting use a direct connection with `odbc` and `DBI` packages:
+
+```{r eval=FALSE}
+library(odbc)
+library(DBI)
+
+# Connect using odbc package
+conn <- DBI::dbConnect(odbc::odbc(),
+                  Driver = "ODBC Driver 18 for SQL Server",
+                  Server = "localhost,1433",
+                  Database = "EpidemiologyDB",
+                  UID = "sa",  # Use 'sa' instead of 'myuser'
+                  PWD = "YourStrong@Password123",  # Use the SA password from docker-compose
+                  TrustServerCertificate = "yes")
+
+# Test the connection
+DBI::dbGetQuery(conn, "SELECT TOP 5 * FROM PatientData")
+# Disconnect
+DBI::dbDisconnect(conn)
+```

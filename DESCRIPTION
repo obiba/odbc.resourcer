@@ -22,7 +22,9 @@ Depends:
     DBI
 Suggests:
     testthat,
-    knitr
+    knitr,
+    rmarkdown
 BugReports: https://github.com/obiba/odbc.resourcer/issues
 RoxygenNote: 7.3.2
+VignetteBuilder: knitr
 Encoding: UTF-8
